@@ -4,4 +4,4 @@ If I were standing before you to host the Tony awards or maybe the Oscars, I cou
 
 I could go on and on with this intro, but taking into consideration the fact that we only have roughly about two hours to go, I'll save the speech for the end. Let's get on with it. I'll just say that my name is Haris Ibrahim K V and I come from South India. So if you want to ask something in between the session, do call out my name and ask.
 
-As you must have already gone through the abstract, you would know that this tutorial is about learning Django. However instead of explaining a "Hello, World" application, we are going to fetch, process and visualize Twitter data.
+As you must have already gone through the abstract, you would know that this tutorial is about learning Django. However instead of explaining a "Hello, World" application, we are going to fetch, process and visualize Twitter data, plugging in redis to implement a few use cases.
