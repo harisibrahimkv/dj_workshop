@@ -1,7 +1,21 @@
 Ladies and Gentlemen,
 
-If I were standing before you to host the Tony awards or maybe the Oscars, I could be jumping about or dance around with scantily clad women and make an absolute fool of myself. However, since this is none of that, all I can say is that it is both a privilege and honor to be here, standing before you.
+If I were standing before you to host the Tony awards or maybe the Oscars, I could be jumping about or dance around with a bunch of jokers and make an absolute fool of myself. However, since this is none of that, all I can say is that it is both a privilege and honor to be here, standing before you.
 
 I could go on and on with this intro, but taking into consideration the fact that we only have roughly about two hours to go, I'll save the speech for the end. Let's get on with it. I'll just say that my name is Haris Ibrahim K V and I come from South India. So if you want to ask something in between the session, do call out my name and ask.
 
 As you must have already gone through the abstract, you would know that this tutorial is about learning Django. However instead of explaining a "Hello, World" application, we are going to fetch, process and visualize Twitter data, plugging in redis to implement a few use cases.
+
+1. The origin of Django
+-----------------------
+
+Let me take you back for about a decade. It is the fall of year 2003. Mr. Adrian Holovaty was sitting there at the Lawrence Journal-World newspaper office in Kansas along with the new intern, Simon Willison. Both of them, experienced wed developers during the time when PHP reigned supreme.
+
+Apparently, the two of them were extremely fed up of having to maintain the huge websites they developed in PHP. I wonder why. ;)
+
+However, during that time, both of them were in love with Python already and they wanted to make web development happen in Python.  
+
+2. How does a website work?
+--------------------------
+
+Why are you learning Django in the first place? The answer is, unanimously, "To build a website!", right? Absolutely. However, what part of a website does Django help you to make? Or if you just use Django, does that take care of everything?
