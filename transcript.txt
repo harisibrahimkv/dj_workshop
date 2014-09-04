@@ -19,3 +19,5 @@ However, during that time, both of them were in love with Python already and the
 --------------------------
 
 Why are you learning Django in the first place? The answer is, unanimously, "To build a website!", right? Absolutely. However, what part of a website does Django help you to make? Or if you just use Django, does that take care of everything?
+
+Whenever you host a website, think of any website that you know, there is a computer sitting at some part of the world which serves that website for you, on a plate or more often on your browser.
