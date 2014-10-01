@@ -21,3 +21,39 @@ However, during that time, both of them were in love with Python already and the
 Why are you learning Django in the first place? The answer is, unanimously, "To build a website!", right? Absolutely. However, what part of a website does Django help you to make? Or if you just use Django, does that take care of everything?
 
 Whenever you host a website, think of any website that you know, there is a computer sitting at some part of the world which serves that website for you, on a plate or more often on your browser.
+
+There are more than a few things that come into picture here. To keep a long story short, first in the line of defense comes a web server. Things like Apache, Nginx, etc are the candidates here. After this layer comes a WSGI application. WSGI is a standard which lets Python application communicate with web servers. Gunicorn is one of the popular ones here. After these two layers comes our Django application!
+
+To complete the entire picture, behind Django, comes the Database. Keep this picture in mind and now let's move on.
+
+3. MVC architecture
+-------------------
+
+During olden days, there was no structure as such for web applications. If you have seen old php sites or even tried to build one in your college curriculum, you know how messed up it becomes with your script in between your HTML and all that.
+
+Anyway, thankfully for us, the world has moved on and certain best practices have been put into place. MVC is one of them. It stands for Model-View-Controller. "Separation of concern" is what it enforces.
+
+In very broad terms, Model is the part where the business logic of your application lies. This means thinking through what all entities your website requires such as User accounts, Friend's list, Categories, Pages, Photos, etc.
+
+View is what your user sees. The HTML and what all goes into based on the user's response are decided by the views.
+
+Last but not the least, comes the controller. As the name suggests, it controls your application's behaviour. This means deciding which function or part of your code to execute based on the user's actions.
+
+Capiche?
+
+4. Starting off with Django
+---------------------------
+
+Now that we have finished our monologue and hopefully you have a better understanding of how a website works, let's get into business, shall we?
+
+It is time to start your project in Django. Now, before we jump into it, you must understand how a Django project is structured. Bear with me on this one. Listen carefully.
+
+Two things: "project" and "app". Did you hear that? "PROJECT" and "APP".
+
+From now on, whenever I say "project", think of it as the Umbrella which everything comes under, got it? When I say "project", get the image of a huge supermarket into your mind, okay? It will have an entrance, a reception, a billing section, etc.
+
+Whenever I say "app", get the image of different sections within a supermarket into your mind. Like cutlery, cosmetics, stationery, etc.
+
+So this is how a Django project is laid out. There is the "project" which encompasses everything and then there are the apps. Let's make a project!
+
+
