@@ -54,6 +54,36 @@ From now on, whenever I say "project", think of it as the Umbrella which everyth
 
 Whenever I say "app", get the image of different sections within a supermarket into your mind. Like cutlery, cosmetics, stationery, etc.
 
-So this is how a Django project is laid out. There is the "project" which encompasses everything and then there are the apps. Let's make a project!
+So this is how a Django project is laid out. There is the "project" which encompasses everything and then there are the apps to take care of specific things within the project. Let's make a project!
 
+$ django-admin.py startproject visualizer
+
+There you go! Django has created the project skeleton for you. Let's explore what we have here. You have something like:
+
+$ tree
+visualizer/
+    manage.py
+    visualizer/
+        __init__.py
+        settings.py
+        urls.py
+        wsgi.py
+
+The top level "visualizer" directory is just a container for your project. Django does not care what you name it. But the visualizer that you see inside is important as you will have to use that to reference whatever is inside. It is a "Python Package".
+
+The manage.py, as the name suggests, is what lets you manage the project. You can pass various command line arguments to it in order to get more than a few things done.
+
+Inside the visualizer folder, the __init__.py file is what Python requires to make your project a package.
+
+The settings.py file is where you specify the DB connections, the path to your static files directory and many other paths and settings which we will talk about through the duration of this session.
+
+urls.py, as you might have guessed has the urls defined. What part of your Django code should execute when a certain URL is hit, will be defined there. You can, at a very high level, think of it as an entry point into your application when a request comes in.
+
+Ready to run your Django code? Splendid. Make it so number one!
+
+$ python manage.py runserver
+
+Head over to http://127.0.0.1:8000/ and see the magic!
+
+Let's move on soldier.
 
