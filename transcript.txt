@@ -87,3 +87,27 @@ Head over to http://127.0.0.1:8000/ and see the magic!
 
 Let's move on soldier.
 
+5. Creating your first Django app
+
+Remember the subsections in the supermarket? That's that we are going to create now. Let's think about our project for a moment now. We are building something that is going to fetch tweets from Twitter and showcase it using a graph. So that's why I decided to call the project visualizer, because that's the main thing it does.
+
+If you think about it, we could visualize anything and it necessarily need not be just twitter. Let's say our stretch goal is to visualize posts from a myriad of social networking sites. Hence, the core visualization code that we are going to use needs to be reusable no matter what the source is. This is a good excuse for an app.
+
+It is time for you to leave the analogy behind. Let me tell you how to think of apps. First of all, think of it as a separation of concern. You have different things that your project is going to do. Apps let you modularize your code.
+
+In our case, broadly, we have two requirements:
+
+ - To visualize whatever data is there.
+ - To fetch posts from different services.
+
+So either you could have two apps, one for each of these. Or you could split up the "different services" into different apps one for each service. For the sake of this tutorial, I am going with the "an app for a service" approach.
+
+Thus, the two apps that I am going to have are:
+
+ - visualize
+ - twitter
+
+Let's create them.
+
+$ python manage.py startapp visualize
+$ python manage.py startapp twitter
