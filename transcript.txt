@@ -111,3 +111,36 @@ Let's create them.
 
 $ python manage.py startapp visualize
 $ python manage.py startapp twitter
+
+Voila! You have two new folders there within. Let's explore the innards of these apps quickly before we move forward.
+
+twitter
+├── admin.py
+├── __init__.py
+├── models.py
+├── tests.py
+└── views.py
+
+We'll come to the admin.py in a minute.
+
+You already know what __init__ is.
+
+The models.py is where we define our models. If you recall when I mentioned about MVC earlier, the model is where you define the different "entities" that you are going to use for your website. Like User accounts, Friend's list, Categories, Pages, Photos, etc.
+
+The tests.py is where you obviously write tests, something that we won't be covering as a part of this tutorial.
+
+Last but not the least, the views.py file. This is what will take care of what the user sees when he requests a certain URL.
+
+5. Customary "Hello, World" tutorial.
+
+Now you know where the URLs go and where the views go. It is about time we did our "Hello, World!"
+
+In order for a request to be processed, we need to define a URL which the user can hit and view that runs the Python code corresponding to that URL.
+
+For the sake of the example, we are just going to print "Hello, World" on the browser. Let's first write the "view" to do that. Open up your visualize/views.py
+
+You can see we are importing something called "Render", but we will use that later. Let us import something called HttpResponse. Now let's write the view. We'll call it "entity_visualizer".
+
+Going in depth to what happens here would leave us with very little time, but one thing that you should know is that every view, EVERY VIEW, should return an Http Response. Django provides different functions to do it, but at the end of the day, it should have a return statement which uses one of these functions.
+
+Also, notice that for every view, a default parameter needs to be passed in called "request". That will contain all the information regarding the incoming request. The data passed in with it, the parameters, the user information, whether it is a GET or a POST request, etc.
