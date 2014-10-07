@@ -160,3 +160,16 @@ Then define the URL.
 Let's go visit the URL and viola! Hellooooo World!
 
 Explore: Use "include" and have the URLs for each app within themselves.
+
+7. Enter Templates.
+-------------------
+
+Well, in the views.py, we just returned a string as an HttpResponse object. While you can feel extremely proud of cramming in your entire HTML file in the place of that string, for the sake of sanity, we should have HTML files as a separate concern.
+
+This is where render comes in. Render uses the "request" parameter, a template and a context. The "context" are the variables that you want pass from your Python code into your templates so that they can be accessed there.
+
+Where do you keep your templates? There are a couple of options out of which the best one is to make a "templates" directory under each app where you keep your HTML files.
+
+So let's go ahead and create an HTML files within the templates directory under the visualize app.
+
+/visualize/templates/hello_world.html
