@@ -4,4 +4,4 @@ from django.shortcuts import render
 # Create your views here.
 
 def entity_visualizer(request):
-    return HttpResponse("Hello, World")
+    return render(request, "hello_world.html")

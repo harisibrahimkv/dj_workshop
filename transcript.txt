@@ -173,3 +173,5 @@ Where do you keep your templates? There are a couple of options out of which the
 So let's go ahead and create an HTML files within the templates directory under the visualize app.
 
 /visualize/templates/hello_world.html
+
+Great! Now let's use "Render" to render it.
