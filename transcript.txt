@@ -88,6 +88,7 @@ Head over to http://127.0.0.1:8000/ and see the magic!
 Let's move on soldier.
 
 5. Creating your first Django app
+---------------------------------
 
 Remember the subsections in the supermarket? That's that we are going to create now. Let's think about our project for a moment now. We are building something that is going to fetch tweets from Twitter and showcase it using a graph. So that's why I decided to call the project visualizer, because that's the main thing it does.
 
@@ -131,7 +132,8 @@ The tests.py is where you obviously write tests, something that we won't be cove
 
 Last but not the least, the views.py file. This is what will take care of what the user sees when he requests a certain URL.
 
-5. Customary "Hello, World" tutorial.
+6. Customary "Hello, World" tutorial.
+-------------------------------------
 
 Now you know where the URLs go and where the views go. It is about time we did our "Hello, World!"
 
@@ -152,3 +154,9 @@ Now since we have the view, let's use it to define the URL as well. Open the up 
 Then let's edit the urls.py file to make that happen.
 
 First make sure you import the view from where it is.
+
+Then define the URL.
+
+Let's go visit the URL and viola! Hellooooo World!
+
+Explore: Use "include" and have the URLs for each app within themselves.
