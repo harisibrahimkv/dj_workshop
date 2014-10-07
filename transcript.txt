@@ -144,3 +144,11 @@ You can see we are importing something called "Render", but we will use that lat
 Going in depth to what happens here would leave us with very little time, but one thing that you should know is that every view, EVERY VIEW, should return an Http Response. Django provides different functions to do it, but at the end of the day, it should have a return statement which uses one of these functions.
 
 Also, notice that for every view, a default parameter needs to be passed in called "request". That will contain all the information regarding the incoming request. The data passed in with it, the parameters, the user information, whether it is a GET or a POST request, etc.
+
+Now since we have the view, let's use it to define the URL as well. Open the up the visualizer/urls.py file. Let's say, you want this "Hello, World" to show up when you visit 
+
+"http://localhost:8000/visualize"
+
+Then let's edit the urls.py file to make that happen.
+
+First make sure you import the view from where it is.

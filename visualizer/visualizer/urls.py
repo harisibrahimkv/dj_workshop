@@ -3,6 +3,8 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
+from visualize.views import entity_visualizer
+
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'visualizer.views.home', name='home'),
