@@ -193,3 +193,7 @@ Just to get the hang of things, let's try passing in some variables into the tem
 For the sake of knowing I am not pulling your leg, let's get the current date and print it within the template each time we visit the URL. For that, we can use the datetime library.
 
 Get the current date.
+
+Make it into a dictionary.
+
+Pass it in along with render.
