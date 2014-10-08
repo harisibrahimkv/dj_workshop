@@ -183,3 +183,13 @@ Remember when we explained the concept of "project" and "apps" earlier? Well, Dj
 Open up visualizer/settings.py
 
 Do you see the dictionary called "INSTALLED_APPS" defined? Whatever you see over there are apps. And it is only natural that any app that we create needs to be added there as well.
+
+Added it? Splendid. Let's visit the URL once again, shall we?
+
+There you go, as promised. :)
+
+Just to get the hang of things, let's try passing in some variables into the templates.
+
+For the sake of knowing I am not pulling your leg, let's get the current date and print it within the template each time we visit the URL. For that, we can use the datetime library.
+
+Get the current date.
