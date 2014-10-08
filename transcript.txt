@@ -175,3 +175,11 @@ So let's go ahead and create an HTML files within the templates directory under 
 /visualize/templates/hello_world.html
 
 Great! Now let's use "Render" to render it.
+
+Now try visiting the same URL as earlier. You will get an error saying "Template Does not Exist".
+
+Remember when we explained the concept of "project" and "apps" earlier? Well, Django uses the same concept for many of its core functions as well. Would you like to see all the predefined apps that Django comes with?
+
+Open up visualizer/settings.py
+
+Do you see the dictionary called "INSTALLED_APPS" defined? Whatever you see over there are apps. And it is only natural that any app that we create needs to be added there as well.
