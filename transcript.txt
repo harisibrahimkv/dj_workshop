@@ -116,11 +116,11 @@ $ python manage.py startapp twitter
 Voila! You have two new folders there within. Let's explore the innards of these apps quickly before we move forward.
 
 twitter
-├── admin.py
-├── __init__.py
-├── models.py
-├── tests.py
-└── views.py
+- admin.py
+- __init__.py
+- models.py
+- tests.py
+- views.py
 
 We'll come to the admin.py in a minute.
 
@@ -197,3 +197,14 @@ Get the current date.
 Make it into a dictionary.
 
 Pass it in along with render.
+
+8. Defining the problem statement
+---------------------------------
+
+The problem statement is simple. Fetch the tweets related to a certain hashtag, visualize the tweets/hr graph along with knowing the most popular tweet and how many tweets we got in total. So what do we need? A form for the user to input the hashtag, which is to be displayed at a separate URL. Also, the visualize page that we already have.
+
+9. A small intro to Redis
+-------------------------
+
+The NoSQL datastore.
+
