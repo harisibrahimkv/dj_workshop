@@ -230,3 +230,28 @@ Now you would have seen a lot of tables being created when you ran that even tho
 As I told you before, Django itself comes with a few apps pre-installed and those have their own models defined. When you ran the syncdb for the first time, the tables corresponding to all those models got created.
 
 Specify the superuser and let's move on.
+
+11. Introducing the ORM functions
+---------------------------------
+
+Let's drop down to the shell and play around with the ORM.
+
+$ python manage.py shell
+>>> import datetime
+>>> date = "Wed Mar 03 22:23:57 +0000 2010"
+>>> created_at = datetime.datetime.strptime(date,'%a %b %d %H:%M:%S +0000 %Y')
+>>> Tweet.objects.create(hashtag = "#pyconireland", author = "Batman", created_at = created_at, text = "Sometimes words are hard to find")
+>>> Tweet.objects.all()
+[<Tweet: Tweet object>]
+>>> Tweet.objects.create(hashtag = "#pyconireland", author = "Superman", created_at = created_at, text = "Greatest detective")<Tweet: Tweet object>
+>>> Tweet.objects.all()
+[<Tweet: Tweet object>, <Tweet: Tweet object>]
+>>> Tweet.objects.filter(author = "Batman")
+[<Tweet: Tweet object>]
+>>> 
+
+12. Receiving input from the user
+---------------------------------
+
+
+
