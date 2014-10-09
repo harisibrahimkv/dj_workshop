@@ -206,5 +206,16 @@ The problem statement is simple. Fetch the tweets related to a certain hashtag, 
 9. A small intro to Redis
 -------------------------
 
-The NoSQL datastore.
+What is a SQL datastore and how is redis different by being a NoSQL datastore.
+
+10. Thinking about models
+-------------------------
+
+Ah yes, the models. We have left this part out, one of the most important part out until now. As we have alredy discussed what models are, this is the time to decide on what our models will be. As you can see, we are fetching tweets and we need to show the user the visualization, popular and count each time he visits the "visualize" URL. So, instead of hitting the API each time when the user wants it, we can save the information we need in a database. This is where models step in.
+
+How many of you know what an ORM is? 7 of you. Splendid. To make a long story short as a programmer, it is hard to always think in terms of rows and columns when you are writing Python code. So what the ORM (the Object Relational Mapper) does it that, it maps the Relations to Classes in Python.
+
+So when you are thinking "table name", it is Class Name in Python. When you think of columns, they will be the respective attributes within the classes. When you think of one row, it will be an instance of the corresponding Class. When you are thinking a particular column of a row, it will the instance.attribute name.
+
+Without further ado, let's define our models. Since we are storing the tweet, and we need to show the tweet text and we need the time to compute the tweets/hr graph, we will define a table called Tweet with the fields, text, created_at and author name.
 
