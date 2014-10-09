@@ -219,3 +219,6 @@ So when you are thinking "table name", it is Class Name in Python. When you thin
 
 Without further ado, let's define our models. Since we are storing the tweet, and we need to show the tweet text and we need the time to compute the tweets/hr graph, we will define a table called Tweet with the fields, text, created_at and author name.
 
+Excellent. There is yet another important aspect that we have not introduced until now. Now that you have created the model, how do you make sure it is there in the database?
+
+For that to happen, manage.py gives you another convenience command called "syncdb". Let's try that out now.
