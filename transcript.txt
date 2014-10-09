@@ -222,3 +222,11 @@ Without further ado, let's define our models. Since we are storing the tweet, an
 Excellent. There is yet another important aspect that we have not introduced until now. Now that you have created the model, how do you make sure it is there in the database?
 
 For that to happen, manage.py gives you another convenience command called "syncdb". Let's try that out now.
+
+$ python manage.py syncdb
+
+Now you would have seen a lot of tables being created when you ran that even though you have innocently defined only one. The answer to that mystery lies in the settings.py file under INSTALLED_APPS.
+
+As I told you before, Django itself comes with a few apps pre-installed and those have their own models defined. When you ran the syncdb for the first time, the tables corresponding to all those models got created.
+
+Specify the superuser and let's move on.
