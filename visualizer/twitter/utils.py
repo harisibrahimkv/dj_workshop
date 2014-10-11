@@ -1,4 +1,8 @@
-from twython import Twython
+import json
+import datetime
+# from twython import Twython
+
+from .models import Tweet
 
 def fetch_tweets(hashtag):
     # twitter = Twython(
@@ -13,5 +17,18 @@ def fetch_tweets(hashtag):
     # )
     f = open("/home/haris/dj_workshop/visualizer/twitter/new_tweets.txt", "r")
     tweets = json.loads(f.read())
-    print type(tweets)
-    print type(tweets[0])
+    return tweets
+
+def save_tweets(tweets, hashtag):
+    for tweet in tweets:
+        author = tweet['user']['screen_name']
+        created_at = datetime.datetime.strptime(
+            tweet['created_at'], '%a %b %d %H:%M:%S +0000 %Y'
+        )
+        text = tweet['text']
+        tweet, created = Tweet.objects.get_or_create(
+            hashtag = hashtag,
+            author = author,
+            created_at = created_at,
+            text = text
+        )
