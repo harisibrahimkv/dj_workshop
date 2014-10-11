@@ -14,6 +14,7 @@ def user_input(request):
         form = HashtagForm(request.POST)
         if form.is_valid():
             hashtag = form.cleaned_data['hashtag']
+            tweets = fetch_tweets(hashtag)
             return HttpResponse("Gotcha!")
 
     return render(request, 'user_input.html', { 'form': form })
