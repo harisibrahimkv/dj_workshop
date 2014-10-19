@@ -1,3 +1,11 @@
+Learn Django and Redis by visualizing Twitter data
+==================================================
+
+*by Haris Ibrahim K V*
+
+0. Introduction
+---------------
+
 Ladies and Gentlemen,
 
 If I were standing before you to host the Tony awards or maybe the Oscars, I
@@ -59,7 +67,7 @@ picture in mind and now let's move on.
 -------------------
 
 During olden days, there was no structure as such for web applications. If you
-have seen old php sites or even tried to build one in your college curriculum,
+have seen old PHP sites or even tried to build one in your college curriculum,
 you know how messed up it becomes with your script in between your HTML and all
 that.
 
@@ -149,7 +157,7 @@ Ready to run your Django code? Splendid. Make it so number one!
 $ python manage.py runserver
 ```
 
-Head over to http://127.0.0.1:8000/ and see the magic!
+Head over to http://127.0.0.1:8000 and see the magic!
 
 Let's move on soldier.
 
@@ -238,9 +246,10 @@ later. Let us import something called HttpResponse. Now let's write the view.
 We'll call it "`entity_visualizer`".
 
 Going in depth to what happens here would leave us with very little time, but
-one thing that you should know is that every view, EVERY VIEW, should return an
-Http Response. Django provides different functions to do it, but at the end of
-the day, it should have a return statement which uses one of these functions.
+one thing that you should know is that every view, **EVERY VIEW**, should
+return an `HttpResponse`. Django provides different functions to do it, but at
+the end of the day, it should have a return statement which uses one of these
+functions.
 
 Also, notice that for every view, a default parameter needs to be passed in
 called "request". That will contain all the information regarding the incoming
@@ -250,18 +259,16 @@ whether it is a GET or a POST request, etc.
 Now since we have the view, let's use it to define the URL as well. Open the up
 the `visualizer/urls.py` file. Let's say, you want this "Hello, World" to show
 up when you visit
+[http://localhost:8000/visualize](http://localhost:8000/visualize).
 
-"http://localhost:8000/visualize"
-
-Then let's edit the `urls.py` file to make that happen.
-
-First make sure you import the view from where it is.
-
-Then define the URL.
+Then let's edit the `urls.py` file to make that happen:
+ - First make sure you import the view from where it is.
+ - Then define the URL.
 
 Let's go visit the URL and viola! Hellooooo World!
 
-Explore: Use "include" and have the URLs for each app within themselves.
+Explore:
+ - [ ] Use "include" and have the URLs for each app within themselves.
 
 
 7. Enter Templates.
@@ -284,7 +291,7 @@ So let's go ahead and create an HTML files within the templates directory under
 the visualize app.
 
 ```
-/visualize/templates/hello_world.html
+visualize/templates/hello_world.html
 ```
 
 Great! Now let's use "Render" to render it.
@@ -298,7 +305,7 @@ like to see all the predefined apps that Django comes with?
 
 Open up `visualizer/settings.py`.
 
-Do you see the dictionary called "INSTALLED_APPS" defined? Whatever you see
+Do you see the dictionary called `INSTALLED_APPS` defined? Whatever you see
 over there are apps. And it is only natural that any app that we create needs
 to be added there as well.
 
@@ -368,7 +375,7 @@ until now. Now that you have created the model, how do you make sure it is
 there in the database?
 
 For that to happen, manage.py gives you another convenience command called
-"syncdb". Let's try that out now.
+`syncdb`. Let's try that out now.
 
 ```bash
 $ python manage.py syncdb
@@ -394,17 +401,25 @@ Let's drop down to the shell and play around with the ORM.
 $ python manage.py shell
 >>> import datetime
 >>> date = "Wed Mar 03 22:23:57 +0000 2010"
->>> created_at = datetime.datetime.strptime(date,'%a %b %d %H:%M:%S +0000 %Y')
->>> Tweet.objects.create(hashtag = "#pyconireland", author = "Batman",
-created_at = created_at, text = "Sometimes words are hard to find")
+>>> created_at = datetime.datetime.strptime(
+    date,
+    '%a %b %d %H:%M:%S +0000 %Y')
+>>> Tweet.objects.create(
+    hashtag="#pyconireland",
+    author="Batman",
+    created_at=created_at,
+    text="Sometimes words are hard to find")
 >>> Tweet.objects.all()
 [<Tweet: Tweet object>]
->>> Tweet.objects.create(hashtag = "#pyconireland", author = "Superman",
-created_at = created_at, text = "Greatest detective")
+>>> Tweet.objects.create(
+    hashtag="#pyconireland",
+    author="Superman",
+    created_at=created_at,
+    text="Greatest detective")
 <Tweet: Tweet object>
 >>> Tweet.objects.all()
 [<Tweet: Tweet object>, <Tweet: Tweet object>]
->>> Tweet.objects.filter(author = "Batman")
+>>> Tweet.objects.filter(author="Batman")
 [<Tweet: Tweet object>]
 >>>
 ```
