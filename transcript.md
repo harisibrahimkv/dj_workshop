@@ -16,6 +16,7 @@ tutorial is about learning Django. However instead of explaining a "Hello,
 World" application, we are going to fetch, process and visualize Twitter data,
 plugging in redis to implement a few use cases.
 
+
 1. The origin of Django
 -----------------------
 
@@ -25,17 +26,18 @@ office in Kansas along with the new intern, Simon Willison. Both of them,
 experienced wed developers during the time when PHP reigned supreme.
 
 Apparently, the two of them were extremely fed up of having to maintain the
-huge websites they developed in PHP. I wonder why. ;)
+huge websites they developed in PHP. I wonder why. :smile:
 
 However, during that time, both of them were in love with Python already and
-they wanted to make web development happen in Python.  
+they wanted to make web development happen in Python.
+
 
 2. How does a website work?
 --------------------------
 
-Why are you learning Django in the first place? The answer is, unanimously, "To
-build a website!", right? Absolutely. However, what part of a website does
-Django help you to make? Or if you just use Django, does that take care of
+Why are you learning Django in the first place? The answer is, unanimously,
+*"To build a website!"*, right? Absolutely. However, what part of a website
+does Django help you to make? Or if you just use Django, does that take care of
 everything?
 
 Whenever you host a website, think of any website that you know, there is a
@@ -51,6 +53,7 @@ comes our Django application!
 
 To complete the entire picture, behind Django, comes the Database. Keep this
 picture in mind and now let's move on.
+
 
 3. MVC architecture
 -------------------
@@ -77,6 +80,7 @@ your code to execute based on the user's actions.
 
 Capiche?
 
+
 4. Starting off with Django
 ---------------------------
 
@@ -101,7 +105,9 @@ So this is how a Django project is laid out. There is the "project" which
 encompasses everything and then there are the apps to take care of specific
 things within the project. Let's make a project!
 
+```bash
 $ django-admin.py startproject visualizer
+```
 
 There you go! Django has created the project skeleton for you. Let's explore
 what we have here. You have something like:
@@ -109,11 +115,11 @@ what we have here. You have something like:
 ```bash
 $ tree visualizer/
 visualizer/
-├── manage.py
 └── visualizer
     ├── __init__.py
     ├── settings.py
-    └── urls.py
+    ├── urls.py
+    └── wsgi.py
 ```
 
 The top level "visualizer" directory is just a container for your project.
@@ -125,25 +131,28 @@ The manage.py, as the name suggests, is what lets you manage the project. You
 can pass various command line arguments to it in order to get more than a few
 things done.
 
-Inside the visualizer folder, the __init__.py file is what Python requires to
-make your project a package.
+Inside the visualizer folder, the `__init__.py` file is what Python requires
+to make your project a package.
 
-The settings.py file is where you specify the DB connections, the path to your
-static files directory and many other paths and settings which we will talk
-about through the duration of this session.
+The `settings.py` file is where you specify the DB connections, the path to
+your static files directory and many other paths and settings which we will
+talk about through the duration of this session.
 
-urls.py, as you might have guessed has the urls defined. What part of your
+`urls.py`, as you might have guessed has the urls defined. What part of your
 Django code should execute when a certain URL is hit, will be defined there.
 You can, at a very high level, think of it as an entry point into your
 application when a request comes in.
 
 Ready to run your Django code? Splendid. Make it so number one!
 
+```bash
 $ python manage.py runserver
+```
 
 Head over to http://127.0.0.1:8000/ and see the magic!
 
 Let's move on soldier.
+
 
 5. Creating your first Django app
 ---------------------------------
@@ -165,7 +174,6 @@ apps. First of all, think of it as a separation of concern. You have different
 things that your project is going to do. Apps let you modularize your code.
 
 In our case, broadly, we have two requirements:
-
  - To visualize whatever data is there.
  - To fetch posts from different services.
 
@@ -174,38 +182,43 @@ the "different services" into different apps one for each service. For the sake
 of this tutorial, I am going with the "an app for a service" approach.
 
 Thus, the two apps that I am going to have are:
-
  - visualize
  - twitter
 
 Let's create them.
 
-$ python manage.py startapp visualize $ python manage.py startapp twitter
+```bash
+$ python manage.py startapp visualize
+$ python manage.py startapp twitter
+```
 
 Voila! You have two new folders there within. Let's explore the innards of
 these apps quickly before we move forward.
 
+```
 twitter
-- admin.py
-- __init__.py
-- models.py
-- tests.py
-- views.py
+     ├── admin.py
+     ├── __init__.py
+     ├── models.py
+     ├── tests.py
+     └── views.py
+```
 
-We'll come to the admin.py in a minute.
+We'll come to the `admin.py` in a minute.
 
-You already know what __init__ is.
+You already know what `__init__` is.
 
 The models.py is where we define our models. If you recall when I mentioned
 about MVC earlier, the model is where you define the different "entities" that
 you are going to use for your website. Like User accounts, Friend's list,
 Categories, Pages, Photos, etc.
 
-The tests.py is where you obviously write tests, something that we won't be
+The `tests.py` is where you obviously write tests, something that we won't be
 covering as a part of this tutorial.
 
-Last but not the least, the views.py file. This is what will take care of what
+Last but not the least, the `views.py` file. This is what will take care of what
 the user sees when he requests a certain URL.
+
 
 6. Customary "Hello, World" tutorial.
 -------------------------------------
@@ -218,11 +231,11 @@ can hit and view that runs the Python code corresponding to that URL.
 
 For the sake of the example, we are just going to print "Hello, World" on the
 browser. Let's first write the "view" to do that. Open up your
-visualize/views.py
+`visualize/views.py`
 
 You can see we are importing something called "Render", but we will use that
 later. Let us import something called HttpResponse. Now let's write the view.
-We'll call it "entity_visualizer".
+We'll call it "`entity_visualizer`".
 
 Going in depth to what happens here would leave us with very little time, but
 one thing that you should know is that every view, EVERY VIEW, should return an
@@ -235,12 +248,12 @@ request. The data passed in with it, the parameters, the user information,
 whether it is a GET or a POST request, etc.
 
 Now since we have the view, let's use it to define the URL as well. Open the up
-the visualizer/urls.py file. Let's say, you want this "Hello, World" to show up
-when you visit 
+the `visualizer/urls.py` file. Let's say, you want this "Hello, World" to show
+up when you visit
 
 "http://localhost:8000/visualize"
 
-Then let's edit the urls.py file to make that happen.
+Then let's edit the `urls.py` file to make that happen.
 
 First make sure you import the view from where it is.
 
@@ -250,10 +263,11 @@ Let's go visit the URL and viola! Hellooooo World!
 
 Explore: Use "include" and have the URLs for each app within themselves.
 
+
 7. Enter Templates.
 -------------------
 
-Well, in the views.py, we just returned a string as an HttpResponse object.
+Well, in the `views.py`, we just returned a string as an HttpResponse object.
 While you can feel extremely proud of cramming in your entire HTML file in the
 place of that string, for the sake of sanity, we should have HTML files as a
 separate concern.
@@ -269,7 +283,9 @@ your HTML files.
 So let's go ahead and create an HTML files within the templates directory under
 the visualize app.
 
+```
 /visualize/templates/hello_world.html
+```
 
 Great! Now let's use "Render" to render it.
 
@@ -280,7 +296,7 @@ Remember when we explained the concept of "project" and "apps" earlier? Well,
 Django uses the same concept for many of its core functions as well. Would you
 like to see all the predefined apps that Django comes with?
 
-Open up visualizer/settings.py
+Open up `visualizer/settings.py`.
 
 Do you see the dictionary called "INSTALLED_APPS" defined? Whatever you see
 over there are apps. And it is only natural that any app that we create needs
@@ -288,7 +304,7 @@ to be added there as well.
 
 Added it? Splendid. Let's visit the URL once again, shall we?
 
-There you go, as promised. :)
+There you go, as promised. :smile:
 
 Just to get the hang of things, let's try passing in some variables into the
 templates.
@@ -303,6 +319,7 @@ Make it into a dictionary.
 
 Pass it in along with render.
 
+
 8. Defining the problem statement
 ---------------------------------
 
@@ -312,10 +329,12 @@ many tweets we got in total. So what do we need? A form for the user to input
 the hashtag, which is to be displayed at a separate URL. Also, the visualize
 page that we already have.
 
+
 9. A small intro to Redis
 -------------------------
 
 What is a SQL datastore and how is redis different by being a NoSQL datastore.
+
 
 10. Thinking about models
 -------------------------
@@ -351,11 +370,13 @@ there in the database?
 For that to happen, manage.py gives you another convenience command called
 "syncdb". Let's try that out now.
 
+```bash
 $ python manage.py syncdb
+```
 
 Now you would have seen a lot of tables being created when you ran that even
 though you have innocently defined only one. The answer to that mystery lies in
-the settings.py file under INSTALLED_APPS.
+the `settings.py` file under `INSTALLED_APPS`.
 
 As I told you before, Django itself comes with a few apps pre-installed and
 those have their own models defined. When you ran the syncdb for the first
@@ -363,11 +384,13 @@ time, the tables corresponding to all those models got created.
 
 Specify the superuser and let's move on.
 
+
 11. Introducing the ORM functions
 ---------------------------------
 
 Let's drop down to the shell and play around with the ORM.
 
+```python
 $ python manage.py shell
 >>> import datetime
 >>> date = "Wed Mar 03 22:23:57 +0000 2010"
@@ -384,6 +407,7 @@ created_at = created_at, text = "Greatest detective")
 >>> Tweet.objects.filter(author = "Batman")
 [<Tweet: Tweet object>]
 >>>
+```
 
 12. Receiving input from the user
 ---------------------------------
